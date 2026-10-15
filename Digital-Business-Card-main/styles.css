@@ -1,0 +1,130 @@
+/* ---- Digital business card styles (shared by index.html and setup.html) ----
+   Colors come from your config's theme; JS sets --accent / --accent-2.        */
+:root {
+  --bg: #0d0f14;
+  --bg2: #161a22;
+  --card: #1b202b;
+  --line: #2a3140;
+  --text: #f3f5f8;
+  --muted: #9aa4b2;
+  --accent: #14b8a6;
+  --accent-2: #5eead4;
+  --on-accent: #03231f;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  min-height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(20,184,166,0.16), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px 24px 26px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  text-align: center;
+}
+
+.avatar {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  letter-spacing: 1px;
+  color: var(--on-accent);
+  background: linear-gradient(145deg, var(--accent-2), var(--accent));
+  box-shadow: 0 8px 24px rgba(20,184,166,0.38);
+}
+
+.card h1 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.title { margin: 0; color: var(--accent-2); font-size: 15px; font-weight: 600; }
+.org {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  margin: 22px 0;
+}
+
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--accent-2), var(--accent));
+  color: var(--on-accent);
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(20,184,166,0.32);
+  transition: transform 0.08s ease, box-shadow 0.2s ease;
+}
+.save:active { transform: translateY(1px) scale(0.995); box-shadow: 0 6px 16px rgba(20,184,166,0.30); }
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  text-decoration: none;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.row:active { background: rgba(255,255,255,0.05); border-color: #3a4356; }
+.row .ico {
+  flex: 0 0 auto;
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: rgba(20,184,166,0.14);
+}
+.row .ico svg { width: 19px; height: 19px; stroke: var(--accent-2); fill: none; }
+.row .ico svg.solid { stroke: none; fill: var(--accent-2); }
+.row .meta { min-width: 0; }
+.row .k { font-size: 12px; color: var(--muted); letter-spacing: 0.4px; }
+.row .v { font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.hint { margin: 18px 2px 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.footer { margin-top: 16px; color: #6b7482; font-size: 11px; letter-spacing: 0.4px; }
